@@ -10,9 +10,9 @@ export default function Tabs({ changeTabFn }) {
     changeTabFn(tabName);
   };
 
-  const handleAddProduct = () => {
-    router.push("/AddProduct");
-  };
+  // const handleAddProduct = () => {
+  //   router.push("/AddProduct");
+  // };
   return (
     <>
       <div className="w-full h-20 pt-4 bg-white hidden lg:block">
@@ -95,7 +95,7 @@ export default function Tabs({ changeTabFn }) {
               </li>
             </ul>
           </div>
-          <div className="float-right">
+          {/* <div className="float-right">
             <button
               type="button"
               onClick={handleAddProduct}
@@ -104,7 +104,7 @@ export default function Tabs({ changeTabFn }) {
             >
               + Add New Product
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

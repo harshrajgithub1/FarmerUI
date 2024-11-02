@@ -79,14 +79,8 @@ export default function ProductDeatils() {
         <div className="container mx-auto px-4 py-8">
           <Link href="/Product">
             <span className="flex items-center font-bold text-[10px] text-customGreen py-2 px-4 rounded-lg cursor-pointer">
-              <Image
-                src={"/assets/img/vector-10.png"}
-                width={20}
-                height={10}
-                alt="Go Back Icon"
-                className="mr-2"
-                style={{ width: "auto", height: "auto" }}
-              />
+            
+              <img className="mr-2" src="/assets/img/vector-10.png" alt="Back Icon"/>
               Go Back
             </span>
           </Link>

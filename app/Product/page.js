@@ -182,13 +182,16 @@ export default function Product() {
 
             <span className="hidden sm:block text-sm sm:text-base">
               Please
+              {" "}
               <Link className="text-green-700 underline" href="/auth/signUp">
                 signup
               </Link>
+              {" "}
               to reveal <strong>price</strong> and{" "}
               <strong>contact number</strong>
             </span>
 
+          {/* moblie view time Add new button work */}
             <span className="block sm:hidden text-sm self-end">
               <button
                 type="button"
