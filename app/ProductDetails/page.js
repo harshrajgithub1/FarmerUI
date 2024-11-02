@@ -80,7 +80,7 @@ export default function ProductDeatils() {
           <Link href="/Product">
             <span className="flex items-center font-bold text-[10px] text-customGreen py-2 px-4 rounded-lg cursor-pointer">
               <img
-                src={"/assets/img/vector-10.png"}
+                src={"/assets/img/Vector-10.png"}
                 width={20}
                 height={10}
                 alt="Go Back Icon"
@@ -95,7 +95,7 @@ export default function ProductDeatils() {
             <div className="w-full md:w-[454px] md:h-[400px] max-h-[400px] px-4 mb-8">
               <div className="relative border-l border-r border-gray-300 shadow-2xl rounded-lg overflow-hidden">
                 <img
-                  src={"/assets/img/vector.png"}
+                  src={"/assets/img/Vector.png"}
                   width={40}
                   height={40}
                   alt="Heart"
