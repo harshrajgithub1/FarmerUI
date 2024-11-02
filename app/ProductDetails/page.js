@@ -1,5 +1,4 @@
 "use client";
-import All from "../component/Tabs";
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -32,7 +31,6 @@ export default function ProductDeatils() {
   };
 
   const [favorites, setFavorites] = useState({});
-  console.log("fav:-", favorites);
   const handleFavoriteClick = (productId) => {
     setFavorites((prevFavorites) => ({
       ...prevFavorites,
@@ -109,23 +107,25 @@ export default function ProductDeatils() {
                   height={250}
                   className="object-contain"
                   id="mainImage"
-                  style={{maxHeight: '330px', minHeight: '330px'}}
+                  style={{ maxHeight: "330px", minHeight: "330px" }}
                 />
               </div>
 
               <div className="flex w-full gap-4 py-4 justify-between flex-wrap">
-  {imgArr.map((image) => (
-    <img
-      key={image.id}
-      src={`/assets/img/${image.imgUrl}`}
-      alt={`Thumbnail ${image.id}`}
-      onClick={() => handleImageClicked(image.id)}
-      className={`w-14 h-14 object-cover rounded-lg cursor-pointer transition duration-300 ${
-        selectedImageId === image.id ? "border border-customGreen" : ""
-      }`}
-    />
-  ))}
-</div>
+                {imgArr.map((image) => (
+                  <img
+                    key={image.id}
+                    src={`/assets/img/${image.imgUrl}`}
+                    alt={`Thumbnail ${image.id}`}
+                    onClick={() => handleImageClicked(image.id)}
+                    className={`w-14 h-14 object-cover rounded-lg cursor-pointer transition duration-300 ${
+                      selectedImageId === image.id
+                        ? "border border-customGreen"
+                        : ""
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Product Details  */}
@@ -135,8 +135,8 @@ export default function ProductDeatils() {
                 <h2 className="text-2xl font-bold flex items-center">
                   Product Name
                 </h2>
-                <span className="ml-2">
-                  <img src="/assets/img/Group 14.png" alt="Price icon" />
+                <span className="ml-2 text-customGreen">
+                <span className="text-[12px]">Rs.</span> <span className="text-[20px]">XX</span>
                 </span>
               </div>
 
@@ -169,51 +169,53 @@ export default function ProductDeatils() {
                 emmental halloumi queso cheesy feet feta.
               </p>
             </div>
-            <div className="w-full max-w-screen-xl mx-auto pt-10 bg-customProductDetails">
-        <p>Similar Items</p>
-        <br></br>
-        <div className="grid grid-cols-2 sm:grid-cols-2 mb-4 md:grid-cols-4 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
-            <div key={product.id} className="flex justify-center bg-white">
-              <div className="flex flex-col p-3 cursor-pointer rounded-xl shadow hover:shadow-md w-full">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <img className="" src={product.imgIcon1} />
-                    <img
-                      className=""
-                      src={
-                        favorites[product.id]
-                          ? "/assets/img/Vector-1.png"
-                          : "/assets/img/Vector.png"
-                      }
-                      onClick={() => handleFavoriteClick(product.id)}
-                    />
+            <div className="max-w-full mx-auto p-4 bg-customProductDetails">
+              <p>Similar Items</p>
+              <br></br>
+              <div className="grid grid-cols-2 sm:grid-cols-2 mb-4 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                {products.map((product, index) => (
+                  <div
+                    key={product.id}
+                    className="flex justify-center bg-white"
+                  >
+                    <div className="flex flex-col p-3 cursor-pointer rounded-xl shadow hover:shadow-md w-full">
+                      <div>
+                        <div className="flex items-center justify-between bg-white">
+                        <span className="ml-2 text-customGreen">
+                        <span className="text-[12px]">Rs.</span> <span className="text-[16px]">XX</span>
+                        </span>
+                          <img
+                            className=""
+                            src={
+                              favorites[product.id]
+                                ? "/assets/img/Vector-1.png"
+                                : "/assets/img/Vector.png"
+                            }
+                            onClick={() => handleFavoriteClick(product.id)}
+                          />
+                        </div>
+                        <div className="flex items-center justify-center h-[185px]">
+                          <img
+                            className=""
+                            src={product.imgMain}
+                            alt={`Product ${index + 1}`}
+                          />
+                        </div>
+                        <p className="text-black text-sm sm:text-base mt-2">
+                          {product.productName}
+                        </p>
+                        <p className="text-customTextNumber text-sm sm:text-base">
+                          {product.contact}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-center h-[185px]">
-                    <img
-                      className=""
-                      src={product.imgMain}
-                      alt={`Product ${index + 1}`}
-                    />
-                  </div>
-                  <p className="text-black text-sm sm:text-base mt-2">
-                    {product.productName}
-                  </p>
-                  <p className="text-customTextNumber text-sm sm:text-base">
-                    {product.contact}
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </div>
           </div>
-          
         </div>
       </div>
-
-      
     </>
   );
 }

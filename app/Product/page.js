@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Tabs from "../component/Tabs";
 import React, { useState } from "react";
 import "reactjs-popup/dist/index.css";
@@ -124,16 +125,12 @@ export default function Product() {
     }));
   };
 
+  // emit function is used
   const handleTabs = (obj) => {
     if (obj === "All") {
       setProductsToDisplay(products);
     } else {
       let filteredProducts = [];
-      // products.forEach((item)=>{
-      //     if(item.type === obj){
-      //         filteredProducts.push(item)
-      //     }
-      // })
       filteredProducts = products.filter((item) => item.type === obj);
       setProductsToDisplay(filteredProducts);
     }
@@ -144,7 +141,13 @@ export default function Product() {
     <>
       <div className="mt-4">
         <div className="w-full h-[200px] sm:h-[300px] flex justify-center mt-10">
-          <img src="/assets/img/Group 62.png" alt="banner image" />
+          {/* <img src="/assets/img/Group 62.png" alt="banner image" /> */}
+          <Image
+          src={`/assets/img/Group 62.png`}
+      alt="banner image"
+      width={1125} 
+      height={319} 
+      />
         </div>
 
         <div className="w-full h-auto items-center mt-6">
@@ -180,9 +183,9 @@ export default function Product() {
             {productsToDisplay.map((product, index) => (
               <div key={product.id} className="flex justify-center">
                 <div className="flex flex-col p-3 cursor-pointer rounded-xl shadow hover:shadow-md w-full">
-                  <Link href={'/ProductDetails'}>
+                  
                   <div className="">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between bg-white">
                       <img className="" src={product.imgIcon1} />
                       <img
                         className=""
@@ -194,6 +197,7 @@ export default function Product() {
                         onClick={() => handleFavoriteClick(product.id)}
                       />
                     </div>
+                    <Link href={'/ProductDetails'}>
                     <div className="flex items-center justify-center h-[185px]">
                       <img
                         className=""
@@ -201,6 +205,8 @@ export default function Product() {
                         alt={`Product ${index + 1}`}
                       />
                     </div>
+                    </Link>
+                    
                     <p className="text-black text-sm sm:text-base mt-2">
                       {product.productName}
                     </p>
@@ -208,7 +214,6 @@ export default function Product() {
                       {product.contact}
                     </p>
                   </div>
-                  </Link>
                   
                 </div>
               </div>

@@ -94,10 +94,13 @@ export default function Header() {
         {/* Flag Drop Down */}
         <div className="hidden md:flex items-center space-x-4 py-2">
           <div className="w-[82px] h-[54px] bg-customGrayDark rounded-lg flex justify-center items-center hover:cursor-pointer">
-            <img
-              className="w-[41px] h-[27px] mr-2"
-              src="/assets/img/image 15.png"
-              alt="icon"
+            
+            <Image
+            className="mr-2"
+            src={`/assets/img/image 15.png`}
+            alt="icon"
+            width={41}
+            height={27}
             />
             <svg
               className="w-3 h-3 text-gray-800 dark:text-white"
@@ -128,10 +131,22 @@ export default function Header() {
           </div>
 
           <div className="w-[57px] h-[57px] flex justify-center items-center hover:cursor-pointer">
-            <img src="/assets/img/Group 35.png" alt="group35" />
+            
+            <Image
+            src={`/assets/img/Group 35.png`}
+            alt="group35"
+            width={57}
+            height={57}
+            />
           </div>
           <div className="w-[57px] h-[57px] flex justify-center items-center hover:cursor-pointer">
-            <img src="/assets/img/Group 33.png" alt="group33" />
+           
+            <Image
+            src={`/assets/img/Group 33.png`}
+            alt="group33"
+            width={57}
+            height={57}
+            />
           </div>
         </div>
       </nav>

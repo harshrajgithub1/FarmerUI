@@ -32,7 +32,7 @@ export default function Buyer() {
                     Change
                   </label>
                 </div>
-                <p className="bg-customProductDetails text-[18px] font-medium">
+                <p className="bg-customProductDetails text-[18px] font-medium rounded-2xl">
                   Buyer
                 </p>
 

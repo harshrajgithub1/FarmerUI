@@ -17,17 +17,15 @@ export default function Buyer() {
     },
   ];
   const handleContinue = () => {
-    if(selectedRole){
+    if (selectedRole) {
       if (selectedRole.toLowerCase() === "buyer") {
         router.push("/auth/Buyer");
       } else if (selectedRole.toLowerCase() === "seller") {
         router.push("/auth/Seller");
-      } 
-    }
-    else {
+      }
+    } else {
       alert("Please select a role to continue.");
     }
-    
   };
 
   return (
@@ -56,7 +54,7 @@ export default function Buyer() {
                     <a
                       href="#"
                       onClick={() => setSelectedRole(account.name)}
-                      className={`flex flex-col items-center justify-center w-[144px] h-[134px] max-w-sm p-6 rounded-lg shadow-2xl ${
+                      className={`relative flex flex-col items-center justify-center w-[144px] h-[134px] max-w-sm p-6 rounded-lg ${
                         selectedRole === account.name
                           ? "bg-customGreen text-white"
                           : "bg-white text-gray-700"
@@ -70,6 +68,8 @@ export default function Buyer() {
                       <p className="font-normal">
                         {account.name.toUpperCase()}
                       </p>
+                      {/* Shadow Effect */}
+                      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-t from-gray-200 to-transparent pointer-events-none shadow-lg" />
                     </a>
                   </div>
                 ))}
