@@ -85,6 +85,7 @@ export default function ProductDeatils() {
                 height={10}
                 alt="Go Back Icon"
                 className="mr-2"
+                style={{ width: "auto", height: "auto" }}
               />
               Go Back
             </span>
@@ -95,10 +96,11 @@ export default function ProductDeatils() {
               <div className="relative border-l border-r border-gray-300 shadow-2xl rounded-lg overflow-hidden">
                 <Image
                   src={"/assets/img/vector.png"}
-                  width={20}
-                  height={10}
+                  width={40}
+                  height={40}
                   alt="Heart"
                   className="absolute top-2 right-2"
+                  style={{ width: "20px", height: "20px" }}
                 />
                 <Image
                   src={`/assets/img/${selectedImageUrl}`}
@@ -136,7 +138,8 @@ export default function ProductDeatils() {
                   Product Name
                 </h2>
                 <span className="ml-2 text-customGreen">
-                <span className="text-[12px]">Rs.</span> <span className="text-[20px]">XX</span>
+                  <span className="text-[12px]">Rs.</span>{" "}
+                  <span className="text-[20px]">XX</span>
                 </span>
               </div>
 
@@ -181,9 +184,10 @@ export default function ProductDeatils() {
                     <div className="flex flex-col p-3 cursor-pointer rounded-xl shadow hover:shadow-md w-full">
                       <div>
                         <div className="flex items-center justify-between bg-white">
-                        <span className="ml-2 text-customGreen">
-                        <span className="text-[12px]">Rs.</span> <span className="text-[16px]">XX</span>
-                        </span>
+                          <span className="ml-2 text-customGreen">
+                            <span className="text-[12px]">Rs.</span>{" "}
+                            <span className="text-[16px]">XX</span>
+                          </span>
                           <img
                             className=""
                             src={

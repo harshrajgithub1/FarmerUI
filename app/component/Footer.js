@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Footer() {
   const [activeTab, setActiveTab] = useState("All");
-
   const tabData = [
     { label: "All", icon: "/assets/img/Group.png" },
     { label: "Grains", icon: "/assets/img/Vector-8.png" },
@@ -30,7 +29,6 @@ export default function Footer() {
                 height={39}
                 width={83.3}
                 alt="Logo"
-                
               />
             </Link>
             <div>
@@ -60,7 +58,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* Tab-style footer, visible only on mobile screens */}
+      {/* Tab footer, visible only on mobile screens */}
       <footer className="bottom-0 left-0 w-full bg-customGray text-white p-4 mt-4 block md:hidden">
         <div className="container mx-auto">
           <div className="flex justify-around">

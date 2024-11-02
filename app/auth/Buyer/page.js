@@ -1,6 +1,5 @@
 "use client";
 import CommonText from "@/app/component/CommonText";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Buyer() {

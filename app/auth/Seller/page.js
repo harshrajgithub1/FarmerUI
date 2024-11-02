@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import CommonText from "@/app/component/CommonText";
 import { useRouter } from "next/navigation";
 
@@ -32,7 +31,7 @@ export default function Seller() {
                     Change
                   </label>
                 </div>
-                <p className="bg-customProductDetails py-4 text-[18px] font-medium">
+                <p className="bg-customProductDetails text-[18px] py-4 font-medium rounded-2xl">
                   Seller
                 </p>
 

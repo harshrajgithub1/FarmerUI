@@ -1,14 +1,16 @@
 "use client";
 import Image from "next/image";
 import Tabs from "../component/Tabs";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "reactjs-popup/dist/index.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSearch } from "../component/search";
 
 export default function Product() {
   const [favorites, setFavorites] = useState({});
   const router = useRouter();
+  const { searchValue } = useSearch();
 
   const products = [
     {
@@ -141,17 +143,32 @@ export default function Product() {
   const handleAddProduct = () => {
     router.push("/AddProduct");
   };
+  useEffect(() => {
+    if (searchValue) {
+      const searchProducts = products.filter(
+        (product) =>
+          product.productName
+            .toLowerCase()
+            .includes(searchValue.toLowerCase()) ||
+          product.type.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setProductsToDisplay(searchProducts);
+    } else {
+      // Reset to all products if searchValue is empty
+      setProductsToDisplay(products);
+    }
+  }, [searchValue]);
 
   return (
     <>
       <div className="mt-4">
         <div className="w-full h-[200px] sm:h-[300px] flex justify-center mt-10">
           <Image
-          src={`/assets/img/Group 62.png`}
-      alt="banner image"
-      width={1125} 
-      height={319} 
-      />
+            src={`/assets/img/Group 62.png`}
+            alt="banner image"
+            width={1125}
+            height={319}
+          />
         </div>
 
         <div className="w-full h-auto items-center mt-6">
@@ -164,10 +181,10 @@ export default function Product() {
             </span>
 
             <span className="hidden sm:block text-sm sm:text-base">
-              Please{" "}
+              Please
               <Link className="text-green-700 underline" href="/auth/signUp">
                 signup
-              </Link>{" "}
+              </Link>
               to reveal <strong>price</strong> and{" "}
               <strong>contact number</strong>
             </span>
@@ -188,13 +205,13 @@ export default function Product() {
             {productsToDisplay.map((product, index) => (
               <div key={product.id} className="flex justify-center">
                 <div className="flex flex-col p-3 cursor-pointer rounded-xl shadow hover:shadow-md w-full">
-                  
                   <div className="">
                     <div className="flex items-center justify-between bg-white">
-                    <span className="ml-2 text-customGreen">
-                        <span className="text-[12px]">Rs.</span> <span className="text-[16px]">XX</span>
-                        </span>
-                      
+                      <span className="ml-2 text-customGreen">
+                        <span className="text-[12px]">Rs.</span>{" "}
+                        <span className="text-[16px]">XX</span>
+                      </span>
+
                       <Image
                         className=""
                         src={
@@ -204,19 +221,20 @@ export default function Product() {
                         }
                         width={24}
                         height={20}
+                        alt="fav"
                         onClick={() => handleFavoriteClick(product.id)}
                       />
                     </div>
-                    <Link href={'/ProductDetails'}>
-                    <div className="flex items-center justify-center h-[185px]">
-                      <img
-                        className=""
-                        src={product.imgMain}
-                        alt={`Product ${index + 1}`}
-                      />
-                    </div>
+                    <Link href={"/ProductDetails"}>
+                      <div className="flex items-center justify-center h-[185px]">
+                        <img
+                          className=""
+                          src={product.imgMain}
+                          alt={`Product ${index + 1}`}
+                        />
+                      </div>
                     </Link>
-                    
+
                     <p className="text-black text-sm sm:text-base mt-2">
                       {product.productName}
                     </p>
@@ -224,7 +242,6 @@ export default function Product() {
                       {product.contact}
                     </p>
                   </div>
-                  
                 </div>
               </div>
             ))}
