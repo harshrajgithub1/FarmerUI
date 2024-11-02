@@ -4,7 +4,9 @@ import { useRouter } from "next/navigation";
 
 export default function AddProduct() {
   const router = useRouter();
-  
+  const handleClick = () => {
+    router.back();
+  }
   return (
     <>
       <section className="bg-gray-50 dark:bg-white">
@@ -163,8 +165,8 @@ export default function AddProduct() {
                 {/* Left-aligned back button */}
                 <button
                   type="button"
+                  onClick={handleClick}
                   className="w-[96px] bg-white flex items-center justify-center p-2 rounded-lg border border-[#19846A] text-customGreen"
-                  onClick=""
                 >
                  Cancel
                 </button>

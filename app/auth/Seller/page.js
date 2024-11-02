@@ -32,7 +32,7 @@ export default function Seller() {
                     Change
                   </label>
                 </div>
-                <p className="bg-customProductDetails text-[18px] font-medium">
+                <p className="bg-customProductDetails py-4 text-[18px] font-medium">
                   Seller
                 </p>
 

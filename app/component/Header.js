@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <>
       <nav className="w-full h-100 bg-customGray flex items-center justify-between px-4 md:px-4">
-        <div className="w-20 h-12 hover:cursor-pointer">
+        <div className="w-20 h-12 pt-2 hover:cursor-pointer">
           <Link href="/">
           <Image
             src={`/assets/img/Group 6918-3.png`}

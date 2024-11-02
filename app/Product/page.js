@@ -4,9 +4,12 @@ import Tabs from "../component/Tabs";
 import React, { useState } from "react";
 import "reactjs-popup/dist/index.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Product() {
   const [favorites, setFavorites] = useState({});
+  const router = useRouter();
+
   const products = [
     {
       id: 1,
@@ -135,7 +138,9 @@ export default function Product() {
       setProductsToDisplay(filteredProducts);
     }
   };
-  
+  const handleAddProduct = () => {
+    router.push("/AddProduct");
+  };
 
   return (
     <>
@@ -170,6 +175,7 @@ export default function Product() {
             <span className="block sm:hidden text-sm self-end">
               <button
                 type="button"
+                onClick={handleAddProduct}
                 className="w-[185px] text-white font-medium rounded-lg text-sm px-5 py-2.5"
                 style={{ backgroundColor: "#19846A" }}
               >
