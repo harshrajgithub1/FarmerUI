@@ -25,10 +25,12 @@ export default function Footer() {
               href="/"
               className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
             >
-              <img
-                src="/assets/img/Group 6918-3.png"
-                className="h-8"
+              <Image
+                src={`/assets/img/Group 6918-3.png`}
+                height={39}
+                width={83.3}
                 alt="Logo"
+                
               />
             </Link>
             <div>

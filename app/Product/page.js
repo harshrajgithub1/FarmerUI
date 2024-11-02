@@ -141,7 +141,6 @@ export default function Product() {
     <>
       <div className="mt-4">
         <div className="w-full h-[200px] sm:h-[300px] flex justify-center mt-10">
-          {/* <img src="/assets/img/Group 62.png" alt="banner image" /> */}
           <Image
           src={`/assets/img/Group 62.png`}
       alt="banner image"
@@ -186,14 +185,19 @@ export default function Product() {
                   
                   <div className="">
                     <div className="flex items-center justify-between bg-white">
-                      <img className="" src={product.imgIcon1} />
-                      <img
+                    <span className="ml-2 text-customGreen">
+                        <span className="text-[12px]">Rs.</span> <span className="text-[16px]">XX</span>
+                        </span>
+                      
+                      <Image
                         className=""
                         src={
                           favorites[product.id]
                             ? "/assets/img/Vector-1.png"
                             : "/assets/img/Vector.png"
                         }
+                        width={24}
+                        height={20}
                         onClick={() => handleFavoriteClick(product.id)}
                       />
                     </div>
