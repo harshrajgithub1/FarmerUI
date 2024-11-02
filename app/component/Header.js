@@ -32,7 +32,8 @@ export default function Header() {
 
   return (
     <>
-      <nav className="w-full h-100 bg-customGray flex items-center justify-between px-4 md:px-4">
+      <nav className="w-full h-100 bg-customGray">
+        <div className="flex items-center justify-between px-4 md:px-4">
         <div className="w-20 h-12 pt-2 hover:cursor-pointer">
           <Link href="/">
           <Image
@@ -155,6 +156,46 @@ export default function Header() {
             />
           </div>
         </div>
+        </div>
+        {/* Search bar */}
+        <div className="relative block xs:max-w-sm sm:hidden mx-auto px-4 py-4 sm:px-4">
+          <form className="flex items-center">
+            <label htmlFor="simple-search" className="sr-only">
+              Search
+            </label>
+            <div className="relative w-full">
+              <input
+                type="text"
+                id="simple-search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                placeholder="Search what you need right here..."
+                required
+              />
+              {/* Suggestions dropdown */}
+              {showSuggestions && filteredSuggestions.length > 0 && (
+                <ul className="absolute top-full mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+                  {filteredSuggestions.map((suggestion, index) => (
+                    <li
+                      key={index}
+                      onClick={() => {
+                        setSearchQuery(suggestion);
+                        setShowSuggestions(false);
+                      }}
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                    >
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </form>
+        </div>
+
       </nav>
     </>
   );
